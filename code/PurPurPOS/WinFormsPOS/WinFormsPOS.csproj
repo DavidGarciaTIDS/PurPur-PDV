@@ -61,6 +61,18 @@
     <Compile Include="CajaFrm.Designer.cs">
       <DependentUpon>CajaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryFrm.designer.cs">
+      <DependentUpon>CategoryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsFrm.designer.cs">
+      <DependentUpon>ProductsFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseFrm.resx">
@@ -68,6 +80,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CajaFrm.resx">
       <DependentUpon>CajaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryFrm.resx">
+      <DependentUpon>CategoryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsFrm.resx">
+      <DependentUpon>ProductsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
