@@ -2,12 +2,21 @@
 {
     public class SearchCollection
     {
+
         public string Name { get; set; }
         public CriteriaOperator Operator { get; set; }
         public object Value { get; set; }
         public bool IsVarchar { get; set; }
         public LogicOperator LogicOp { get; set; }
 
+        public SearchCollection(string name, CriteriaOperator ope, object value, bool isVarchar, LogicOperator logicOp)
+        {
+            Name = name;
+            Operator = ope;
+            Value = value;
+            IsVarchar = isVarchar;
+            LogicOp = logicOp;
+        }
 
 
 

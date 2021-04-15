@@ -1,0 +1,5 @@
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormsPOS\obj\Debug\WinFormsPOS.csprojAssemblyReference.cache
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormsPOS\obj\Debug\WinFormsPOS.BaseFrm.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormsPOS\obj\Debug\WinFormsPOS.CajaFrm.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormsPOS\obj\Debug\WinFormsPOS.Properties.Resources.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormsPOS\obj\Debug\WinFormsPOS.csproj.GenerateResource.cache

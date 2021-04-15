@@ -29,13 +29,14 @@ namespace WinFormsPOS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseFrm));
             this.pHeader = new System.Windows.Forms.Panel();
+            this.lbWarning = new System.Windows.Forms.Label();
+            this.lbModule = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.Panel();
             this.lbTurn = new System.Windows.Forms.Label();
             this.lbUsName = new System.Windows.Forms.Label();
             this.lbUserType = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBUser = new System.Windows.Forms.PictureBox();
             this.pLogo = new System.Windows.Forms.Panel();
             this.picBLogo = new System.Windows.Forms.PictureBox();
             this.pSide = new System.Windows.Forms.Panel();
@@ -47,11 +48,9 @@ namespace WinFormsPOS
             this.pDisplay = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.iBtnSalir = new FontAwesome.Sharp.IconButton();
-            this.lbModule = new System.Windows.Forms.Label();
-            this.lbWarning = new System.Windows.Forms.Label();
             this.pHeader.SuspendLayout();
             this.pUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBUser)).BeginInit();
             this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBLogo)).BeginInit();
             this.pSide.SuspendLayout();
@@ -72,12 +71,32 @@ namespace WinFormsPOS
             this.pHeader.Size = new System.Drawing.Size(1360, 100);
             this.pHeader.TabIndex = 0;
             // 
+            // lbWarning
+            // 
+            this.lbWarning.AutoSize = true;
+            this.lbWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(136)))), ((int)(((byte)(30)))));
+            this.lbWarning.Location = new System.Drawing.Point(106, 9);
+            this.lbWarning.Name = "lbWarning";
+            this.lbWarning.Size = new System.Drawing.Size(240, 32);
+            this.lbWarning.TabIndex = 5;
+            this.lbWarning.Text = "Warning: Error x ocurrido";
+            this.lbWarning.Visible = false;
+            // 
+            // lbModule
+            // 
+            this.lbModule.AutoSize = true;
+            this.lbModule.Location = new System.Drawing.Point(106, 65);
+            this.lbModule.Name = "lbModule";
+            this.lbModule.Size = new System.Drawing.Size(127, 32);
+            this.lbModule.TabIndex = 4;
+            this.lbModule.Text = "Modulo Base";
+            // 
             // pUser
             // 
             this.pUser.Controls.Add(this.lbTurn);
             this.pUser.Controls.Add(this.lbUsName);
             this.pUser.Controls.Add(this.lbUserType);
-            this.pUser.Controls.Add(this.pictureBox1);
+            this.pUser.Controls.Add(this.picBUser);
             this.pUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.pUser.Location = new System.Drawing.Point(1010, 0);
             this.pUser.Name = "pUser";
@@ -111,16 +130,15 @@ namespace WinFormsPOS
             this.lbUserType.Text = "TipoUsuario";
             this.lbUserType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // picBUser
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(250, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picBUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBUser.Location = new System.Drawing.Point(250, 0);
+            this.picBUser.Name = "picBUser";
+            this.picBUser.Size = new System.Drawing.Size(100, 100);
+            this.picBUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBUser.TabIndex = 0;
+            this.picBUser.TabStop = false;
             // 
             // pLogo
             // 
@@ -134,7 +152,6 @@ namespace WinFormsPOS
             // picBLogo
             // 
             this.picBLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBLogo.Image = ((System.Drawing.Image)(resources.GetObject("picBLogo.Image")));
             this.picBLogo.Location = new System.Drawing.Point(0, 0);
             this.picBLogo.Name = "picBLogo";
             this.picBLogo.Size = new System.Drawing.Size(100, 100);
@@ -159,7 +176,7 @@ namespace WinFormsPOS
             // 
             this.iconButton4.BackColor = System.Drawing.Color.Transparent;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.iconButton4.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.iconButton4.IconColor = System.Drawing.Color.Black;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -176,7 +193,7 @@ namespace WinFormsPOS
             // 
             this.iconButton3.BackColor = System.Drawing.Color.Transparent;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.iconButton3.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -193,7 +210,7 @@ namespace WinFormsPOS
             // 
             this.iconButton2.BackColor = System.Drawing.Color.Transparent;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.iconButton2.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -210,7 +227,7 @@ namespace WinFormsPOS
             // 
             this.iBtnProducts.BackColor = System.Drawing.Color.Transparent;
             this.iBtnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iBtnProducts.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iBtnProducts.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iBtnProducts.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
             this.iBtnProducts.IconColor = System.Drawing.Color.Black;
             this.iBtnProducts.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -227,7 +244,7 @@ namespace WinFormsPOS
             // 
             this.iBtnCaja.BackColor = System.Drawing.Color.Transparent;
             this.iBtnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iBtnCaja.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.iBtnCaja.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iBtnCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.iBtnCaja.IconColor = System.Drawing.Color.Black;
             this.iBtnCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -278,27 +295,7 @@ namespace WinFormsPOS
             this.iBtnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnSalir.UseVisualStyleBackColor = true;
             // 
-            // lbModule
-            // 
-            this.lbModule.AutoSize = true;
-            this.lbModule.Location = new System.Drawing.Point(106, 65);
-            this.lbModule.Name = "lbModule";
-            this.lbModule.Size = new System.Drawing.Size(128, 32);
-            this.lbModule.TabIndex = 4;
-            this.lbModule.Text = "Modulo Base";
-            // 
-            // lbWarning
-            // 
-            this.lbWarning.AutoSize = true;
-            this.lbWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(136)))), ((int)(((byte)(30)))));
-            this.lbWarning.Location = new System.Drawing.Point(106, 9);
-            this.lbWarning.Name = "lbWarning";
-            this.lbWarning.Size = new System.Drawing.Size(241, 32);
-            this.lbWarning.TabIndex = 5;
-            this.lbWarning.Text = "Warning: Error x ocurrido";
-            this.lbWarning.Visible = false;
-            // 
-            // BaseFrm
+            // BaseWinFrm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(187)))));
@@ -306,17 +303,16 @@ namespace WinFormsPOS
             this.Controls.Add(this.pDisplay);
             this.Controls.Add(this.pSide);
             this.Controls.Add(this.pHeader);
-            this.Font = new System.Drawing.Font("Dubai Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Dubai Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "BaseFrm";
+            this.Name = "BaseWinFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BaseForm";
-            this.Load += new System.EventHandler(this.BaseFrm_Load);
             this.pHeader.ResumeLayout(false);
             this.pHeader.PerformLayout();
             this.pUser.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBUser)).EndInit();
             this.pLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBLogo)).EndInit();
             this.pSide.ResumeLayout(false);
@@ -333,7 +329,7 @@ namespace WinFormsPOS
         private System.Windows.Forms.Label lbTurn;
         private System.Windows.Forms.Label lbUsName;
         private System.Windows.Forms.Label lbUserType;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBUser;
         private System.Windows.Forms.Panel pLogo;
         private System.Windows.Forms.PictureBox picBLogo;
         private System.Windows.Forms.Panel pSide;

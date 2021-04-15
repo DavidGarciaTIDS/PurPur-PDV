@@ -13,6 +13,7 @@ namespace LibPDV.Products
         public string name { get; set; }
         public string description { get; set; }
         public string logo { get; set; }
+        DataAdapter adap = new DataAdapter();
         List<DataCollection> data;
         
 
@@ -23,31 +24,16 @@ namespace LibPDV.Products
         public string[] Index(string ColumNameOrder, bool truDesc)
         {
             //bool res = true;
-            string[] tabla;
-            List<string> list = new List<string>();
+            List<string> list;
             OrderBy order;
             if (truDesc)
                 order = new OrderBy(ColumNameOrder, Order.DESC);
             else
                 order = new OrderBy(ColumNameOrder, Order.ASC);
 
-            List<List<DataCollection>> listaObj;
-            listaObj = base.index(order);
-            
-            foreach (List<DataCollection> lista in listaObj)
-            {
-                
-                foreach (DataCollection obj in lista)
-                {
-                    if (obj.Name=="name")
-                    {
-                     list.Add(obj.Value.ToString().Replace("'", ""));
-                    }
-                }
+            list=adap.DataColToList(base.index(order),"name");
 
-            }
-            tabla = list.ToArray();
-            return tabla;
+            return list.ToArray();
         }
     }
 }

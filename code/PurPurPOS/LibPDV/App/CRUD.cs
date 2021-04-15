@@ -14,7 +14,7 @@ namespace LibPDV.App
 
         //hard coded database connection
         //BD libBD = new SqlServer("localhost","DBpdv","root","toor");
-        BD libBD = new LibBD.MySql("127.0.0.1", "db_pdvuth2021", "PurPur", "PurPur123", "3306");
+        BD libBD = new LibBD.MySql("127.0.0.1", "db_pdvuth2021", "PurPur", "PurPur123", "3307");
 
         protected CRUD(string Table, List<string> FieldList)
         {

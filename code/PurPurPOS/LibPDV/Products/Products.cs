@@ -11,8 +11,8 @@ namespace LibPDV.Products
 {
     public class Products : CRUD
     {
-        
-        public Products() : base("products", new List<string>() {  "name", "description", "price", "bar_code", "brand_id", "subcategory_id", "image", "measure_unit", "sku" }) 
+
+        public Products() : base("products", new List<string>() { "name", "description", "price", "bar_code", "brand_id", "subcategory_id", "image", "measure_unit", "sku" })
         {
         }
 
@@ -24,9 +24,10 @@ namespace LibPDV.Products
         public string brand { get; set; }
         public string subcategory { get; set; }
         public string metricUnit { get; set; }
+        DataAdapter adapt = new DataAdapter();
         List<DataCollection> data;
 
-        public bool Create( string name, string description,double price, string barCode, int brandId,int subCategoryId,string metricUnit, string sku) 
+        public bool Create(string name, string description, double price, string barCode, int brandId, int subCategoryId, string metricUnit, string sku)
         {
             data = new List<DataCollection>();
             data.Add(new DataCollection("name", Types.VARCHAR, name));
@@ -44,9 +45,9 @@ namespace LibPDV.Products
                 this.ERROR = BD.ERROR;
             }
             return res;
-        
+
         }
-        public bool Update(int id,string name, string description, double price, string barCode, int brandId, int subCategoryId, string metricUnit, string sku) 
+        public bool Update(int id, string name, string description, double price, string barCode, int brandId, int subCategoryId, string metricUnit, string sku)
         {
             data = new List<DataCollection>();
             data.Add(new DataCollection("name", Types.VARCHAR, name));
@@ -57,41 +58,33 @@ namespace LibPDV.Products
             data.Add(new DataCollection("subcategory_Id", Types.INT, subCategoryId));
             data.Add(new DataCollection("measure_unit", Types.VARCHAR, metricUnit));
             data.Add(new DataCollection("sku", Types.VARCHAR, sku));
-            
+
 
             return base.Update(data, id);
         }
-
-        public DataTable Index(string ColumNameOrder,bool truDesc) 
+        public List<List<DataCollection>> Read(List<string> fields, string tabla2, string[] onfields, List<SearchAdapter> search)
         {
-            DataTable tabla = new DataTable();
-            OrderBy order = new OrderBy();
-            if (truDesc)
-            order.OrderCriteria=Order.DESC;
-            else
-            order.OrderCriteria = Order.ASC;
+            return base.Read(new List<string> { }, tabla2, new List<string> { }, new List<SearchCollection> { });
+        }
 
-            List<List<DataCollection>> listaObj;
-            listaObj=base.index(order);
-            tabla.Clear();
-            foreach (List<DataCollection> lista in listaObj)
+        public List<List<DataCollection>> Read(List<string> field, string onfield, List<SearchAdapter> Search) 
+        {
+            List<SearchCollection> searchlist = new List<SearchCollection>();
+            foreach (SearchAdapter obj in Search)
             {
-                DataRow row = tabla.NewRow();
-                foreach (DataCollection obj in lista)
-                {
-                    if (!tabla.Columns.Contains(NameColums(obj.Name)))
-                    {
-                        tabla.Columns.Add(NameColums(obj.Name));
-                    }
-                    row[NameColums(obj.Name)]=obj.Value.ToString().Replace("'","");
-                    
-                }
-
-                tabla.Rows.Add(row);
-                
+                searchlist.Add(obj.adaptToCollect());
             }
+            return base.Read(field, searchlist);
+        }
 
-            return tabla;
+        public List<List<DataCollection>> Index(string ColumNameOrder,bool truDesc) 
+        {
+            OrderBy order;
+            if (truDesc)
+                order = new OrderBy(ColumNameOrder,Order.DESC);
+            else
+                order = new OrderBy(ColumNameOrder, Order.ASC);
+            return base.index(order);
         }
 
         public string NameColums(string col) 
@@ -101,7 +94,6 @@ namespace LibPDV.Products
             {
                 case "name":
                     return "Nombre";
-
                 case "id":
                     return "ID";
                 case "description":

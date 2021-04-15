@@ -1,0 +1,15 @@
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.csprojAssemblyReference.cache
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.AssemblyInfo.cs
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.dll
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\ref\LibPDV.dll
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.pdb
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\LibPDV.deps.json
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\LibPDV.dll
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\ref\LibPDV.dll
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\LibPDV.pdb
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\LibBD.dll
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\bin\Debug\net5.0\LibBD.pdb
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\LibPDV\obj\Debug\net5.0\LibPDV.csproj.CopyComplete

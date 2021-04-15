@@ -10,21 +10,22 @@ namespace LibBD
     {
         public string Name { get; set; }
         public Types FieldType { get; set; }
+        private object fieldValue { get; set; }
         public object Value 
         { 
             get 
             {
                 if (this.HasQuotes())
                 {
-                    return $"'{this.Value}'";
+                    return $"'{this.fieldValue}'";
                 }
                 else
                 {
-                    return this.Value;
+                    return this.fieldValue;
                 }
             }
 
-            set => this.Value = value;
+            set => this.fieldValue = value;
             
         }
 
