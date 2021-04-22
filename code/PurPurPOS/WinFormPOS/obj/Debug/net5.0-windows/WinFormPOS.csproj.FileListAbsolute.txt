@@ -41,3 +41,8 @@ C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.
 C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\ref\WinFormPOS.dll
 C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.pdb
 C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.genruntimeconfig.cache
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.Properties.Resources.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.LoginFrm.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.LogsFrm.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.RegistersFrm.resources
+C:\Users\David\source\repos\PurPur-PDV\code\PurPurPOS\WinFormPOS\obj\Debug\net5.0-windows\WinFormPOS.UsersFrm.resources

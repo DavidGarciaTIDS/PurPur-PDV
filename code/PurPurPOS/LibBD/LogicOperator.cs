@@ -2,8 +2,8 @@
 {
     public enum LogicOperator
     {
-        AND,
-        OR,
+        AND ,
+        OR ,
         NOTHING
     }
 }

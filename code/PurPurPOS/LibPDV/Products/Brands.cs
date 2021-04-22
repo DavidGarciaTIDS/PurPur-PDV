@@ -21,7 +21,7 @@ namespace LibPDV.Products
         {
         }
 
-        public string[] Index(string ColumNameOrder, bool truDesc)
+        public string[] Index(string ColumNameOrder, bool truDesc, List<string> Columns)
         {
             //bool res = true;
             List<string> list;
@@ -31,9 +31,24 @@ namespace LibPDV.Products
             else
                 order = new OrderBy(ColumNameOrder, Order.ASC);
 
-            list=adap.DataColToList(base.index(order),"name");
+            list=adap.DataColToList(base.index(order,Columns),"name");
 
             return list.ToArray();
+        }
+
+        public List<List<DataCollection>> Read(List<string> fields, string tabla2, string[] onfields, List<SearchAdapter> search)
+        {
+            return base.Read(fields, tabla2, new List<string> { }, new List<SearchCollection> { });
+        }
+
+        public List<List<DataCollection>> Read(List<string> field, string onfield, List<SearchAdapter> Search)
+        {
+            List<SearchCollection> searchlist = new List<SearchCollection>();
+            foreach (SearchAdapter obj in Search)
+            {
+                searchlist.Add(obj.adaptToCollect());
+            }
+            return base.Read(field, searchlist);
         }
     }
 }

@@ -42,11 +42,11 @@ namespace WinFormPOS
             this.pSide = new System.Windows.Forms.Panel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iBtnCategory = new FontAwesome.Sharp.IconButton();
             this.iBtnProducts = new FontAwesome.Sharp.IconButton();
             this.iBtnCaja = new FontAwesome.Sharp.IconButton();
             this.pDisplay = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pUserMenu = new System.Windows.Forms.Panel();
             this.iBtnSalir = new FontAwesome.Sharp.IconButton();
             this.pHeader.SuspendLayout();
             this.pUser.SuspendLayout();
@@ -54,8 +54,7 @@ namespace WinFormPOS
             this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBLogo)).BeginInit();
             this.pSide.SuspendLayout();
-            this.pDisplay.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pUserMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pHeader
@@ -93,6 +92,7 @@ namespace WinFormPOS
             // 
             // pUser
             // 
+            this.pUser.Controls.Add(this.pUserMenu);
             this.pUser.Controls.Add(this.lbTurn);
             this.pUser.Controls.Add(this.lbUsName);
             this.pUser.Controls.Add(this.lbUserType);
@@ -132,13 +132,17 @@ namespace WinFormPOS
             // 
             // picBUser
             // 
+            this.picBUser.BackColor = System.Drawing.Color.Transparent;
+            this.picBUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBUser.Image = global::WinFormPOS.Properties.Resources.canvas;
             this.picBUser.Location = new System.Drawing.Point(250, 0);
             this.picBUser.Name = "picBUser";
             this.picBUser.Size = new System.Drawing.Size(100, 100);
             this.picBUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBUser.TabIndex = 0;
             this.picBUser.TabStop = false;
+            this.picBUser.Click += new System.EventHandler(this.picBUser_Click);
             // 
             // pLogo
             // 
@@ -151,7 +155,9 @@ namespace WinFormPOS
             // 
             // picBLogo
             // 
+            this.picBLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBLogo.Image = global::WinFormPOS.Properties.Resources._64_logo;
             this.picBLogo.Location = new System.Drawing.Point(0, 0);
             this.picBLogo.Name = "picBLogo";
             this.picBLogo.Size = new System.Drawing.Size(100, 100);
@@ -163,7 +169,7 @@ namespace WinFormPOS
             // 
             this.pSide.Controls.Add(this.iconButton4);
             this.pSide.Controls.Add(this.iconButton3);
-            this.pSide.Controls.Add(this.iconButton2);
+            this.pSide.Controls.Add(this.iBtnCategory);
             this.pSide.Controls.Add(this.iBtnProducts);
             this.pSide.Controls.Add(this.iBtnCaja);
             this.pSide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -176,15 +182,16 @@ namespace WinFormPOS
             // 
             this.iconButton4.BackColor = System.Drawing.Color.Transparent;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            this.iconButton4.Font = new System.Drawing.Font("Dubai", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Registered;
             this.iconButton4.IconColor = System.Drawing.Color.Black;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.Location = new System.Drawing.Point(0, 344);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(100, 80);
             this.iconButton4.TabIndex = 4;
-            this.iconButton4.Text = "Caja";
+            this.iconButton4.Text = "Log";
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton4.UseVisualStyleBackColor = false;
@@ -194,34 +201,36 @@ namespace WinFormPOS
             this.iconButton3.BackColor = System.Drawing.Color.Transparent;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.UserCog;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.Location = new System.Drawing.Point(0, 258);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(100, 80);
             this.iconButton3.TabIndex = 3;
-            this.iconButton3.Text = "Caja";
+            this.iconButton3.Text = "Usuarios";
             this.iconButton3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
-            // iconButton2
+            // iBtnCategory
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(0, 172);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(100, 80);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "Caja";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iBtnCategory.BackColor = System.Drawing.Color.Transparent;
+            this.iBtnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iBtnCategory.Font = new System.Drawing.Font("Dubai Medium", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iBtnCategory.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.iBtnCategory.IconColor = System.Drawing.Color.Black;
+            this.iBtnCategory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnCategory.Location = new System.Drawing.Point(0, 172);
+            this.iBtnCategory.Name = "iBtnCategory";
+            this.iBtnCategory.Size = new System.Drawing.Size(100, 80);
+            this.iBtnCategory.TabIndex = 2;
+            this.iBtnCategory.Text = "Categorias";
+            this.iBtnCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.iBtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iBtnCategory.UseVisualStyleBackColor = false;
+            this.iBtnCategory.Click += new System.EventHandler(this.iBtnCategory_Click);
             // 
             // iBtnProducts
             // 
@@ -261,22 +270,22 @@ namespace WinFormPOS
             // 
             // pDisplay
             // 
-            this.pDisplay.Controls.Add(this.panel1);
+            this.pDisplay.Cursor = System.Windows.Forms.Cursors.Default;
             this.pDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pDisplay.Location = new System.Drawing.Point(100, 100);
             this.pDisplay.Name = "pDisplay";
             this.pDisplay.Size = new System.Drawing.Size(1260, 668);
             this.pDisplay.TabIndex = 3;
             // 
-            // panel1
+            // pUserMenu
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(82)))), ((int)(((byte)(77)))));
-            this.panel1.Controls.Add(this.iBtnSalir);
-            this.panel1.Location = new System.Drawing.Point(1135, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 100);
-            this.panel1.TabIndex = 0;
-            this.panel1.Visible = false;
+            this.pUserMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(82)))), ((int)(((byte)(77)))));
+            this.pUserMenu.Controls.Add(this.iBtnSalir);
+            this.pUserMenu.Location = new System.Drawing.Point(206, 50);
+            this.pUserMenu.Name = "pUserMenu";
+            this.pUserMenu.Size = new System.Drawing.Size(132, 130);
+            this.pUserMenu.TabIndex = 0;
+            this.pUserMenu.Visible = false;
             // 
             // iBtnSalir
             // 
@@ -288,14 +297,15 @@ namespace WinFormPOS
             this.iBtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnSalir.IconSize = 32;
             this.iBtnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iBtnSalir.Location = new System.Drawing.Point(0, 68);
+            this.iBtnSalir.Location = new System.Drawing.Point(0, 98);
             this.iBtnSalir.Name = "iBtnSalir";
-            this.iBtnSalir.Size = new System.Drawing.Size(125, 32);
+            this.iBtnSalir.Size = new System.Drawing.Size(132, 32);
             this.iBtnSalir.TabIndex = 1;
             this.iBtnSalir.Text = "Salir";
             this.iBtnSalir.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.iBtnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBtnSalir.UseVisualStyleBackColor = true;
+            this.iBtnSalir.Click += new System.EventHandler(this.iBtnSalir_Click);
             // 
             // BaseWinFrm
             // 
@@ -319,8 +329,7 @@ namespace WinFormPOS
             this.pLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBLogo)).EndInit();
             this.pSide.ResumeLayout(false);
-            this.pDisplay.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pUserMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -337,10 +346,10 @@ namespace WinFormPOS
         private System.Windows.Forms.PictureBox picBLogo;
         private System.Windows.Forms.Panel pSide;
         private System.Windows.Forms.Panel pDisplay;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pUserMenu;
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iBtnCategory;
         private FontAwesome.Sharp.IconButton iBtnProducts;
         private FontAwesome.Sharp.IconButton iBtnCaja;
         private FontAwesome.Sharp.IconButton iBtnSalir;

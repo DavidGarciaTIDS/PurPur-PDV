@@ -30,14 +30,6 @@ namespace WinFormPOS
         private void InitializeComponent()
         {
             this.dGVProducts = new System.Windows.Forms.DataGridView();
-            this.product_id = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ProdImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdCateg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdSubcat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPProduct = new FontAwesome.Sharp.IconPictureBox();
             this.iBAdd = new FontAwesome.Sharp.IconButton();
             this.iBRemove = new FontAwesome.Sharp.IconButton();
@@ -64,6 +56,14 @@ namespace WinFormPOS
             this.LbMarca = new System.Windows.Forms.Label();
             this.LbCategory = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.product_id = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProdImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdCateg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdSubcat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPProduct)).BeginInit();
             this.pProduct.SuspendLayout();
@@ -93,70 +93,17 @@ namespace WinFormPOS
             this.ProdSubcat,
             this.ProdBarcode});
             this.dGVProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dGVProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dGVProducts.GridColor = System.Drawing.SystemColors.Control;
             this.dGVProducts.Location = new System.Drawing.Point(0, 52);
             this.dGVProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dGVProducts.MultiSelect = false;
             this.dGVProducts.Name = "dGVProducts";
+            this.dGVProducts.ReadOnly = true;
             this.dGVProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dGVProducts.RowTemplate.Height = 25;
             this.dGVProducts.Size = new System.Drawing.Size(1260, 414);
             this.dGVProducts.TabIndex = 15;
-            // 
-            // product_id
-            // 
-            this.product_id.HeaderText = "ID";
-            this.product_id.Name = "product_id";
-            this.product_id.ReadOnly = true;
-            this.product_id.Width = 40;
-            // 
-            // ProdImage
-            // 
-            this.ProdImage.HeaderText = "Image";
-            this.ProdImage.Name = "ProdImage";
-            this.ProdImage.ReadOnly = true;
-            // 
-            // ProdName
-            // 
-            this.ProdName.HeaderText = "Productos";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            this.ProdName.Width = 175;
-            // 
-            // ProdDesc
-            // 
-            this.ProdDesc.HeaderText = "Descripción";
-            this.ProdDesc.Name = "ProdDesc";
-            this.ProdDesc.ReadOnly = true;
-            this.ProdDesc.Width = 250;
-            // 
-            // ProdPrecio
-            // 
-            this.ProdPrecio.HeaderText = "Precio";
-            this.ProdPrecio.Name = "ProdPrecio";
-            this.ProdPrecio.ReadOnly = true;
-            this.ProdPrecio.Width = 75;
-            // 
-            // ProdCateg
-            // 
-            this.ProdCateg.HeaderText = "Categoria";
-            this.ProdCateg.Name = "ProdCateg";
-            this.ProdCateg.ReadOnly = true;
-            this.ProdCateg.Width = 150;
-            // 
-            // ProdSubcat
-            // 
-            this.ProdSubcat.HeaderText = "Subcategoria";
-            this.ProdSubcat.Name = "ProdSubcat";
-            this.ProdSubcat.ReadOnly = true;
-            this.ProdSubcat.Width = 150;
-            // 
-            // ProdBarcode
-            // 
-            this.ProdBarcode.HeaderText = "Codigo de Barras";
-            this.ProdBarcode.MaxInputLength = 15;
-            this.ProdBarcode.Name = "ProdBarcode";
-            this.ProdBarcode.ReadOnly = true;
-            this.ProdBarcode.Width = 175;
             // 
             // iPProduct
             // 
@@ -398,6 +345,7 @@ namespace WinFormPOS
             // 
             // cbSubcat
             // 
+            this.cbSubcat.Enabled = false;
             this.cbSubcat.Font = new System.Drawing.Font("Dubai", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbSubcat.FormattingEnabled = true;
             this.cbSubcat.Location = new System.Drawing.Point(391, 135);
@@ -456,6 +404,7 @@ namespace WinFormPOS
             this.cbCateg.Name = "cbCateg";
             this.cbCateg.Size = new System.Drawing.Size(244, 40);
             this.cbCateg.TabIndex = 24;
+            this.cbCateg.SelectedValueChanged += new System.EventHandler(this.cbCateg_SelectedValueChanged);
             // 
             // LbMarca
             // 
@@ -489,6 +438,68 @@ namespace WinFormPOS
             this.label1.Size = new System.Drawing.Size(67, 32);
             this.label1.TabIndex = 28;
             this.label1.Text = "Precio:";
+            // 
+            // product_id
+            // 
+            this.product_id.HeaderText = "ID";
+            this.product_id.MinimumWidth = 100;
+            this.product_id.Name = "product_id";
+            this.product_id.ReadOnly = true;
+            // 
+            // ProdImage
+            // 
+            this.ProdImage.HeaderText = "Image";
+            this.ProdImage.MinimumWidth = 100;
+            this.ProdImage.Name = "ProdImage";
+            this.ProdImage.ReadOnly = true;
+            // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Productos";
+            this.ProdName.MinimumWidth = 100;
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            this.ProdName.Width = 175;
+            // 
+            // ProdDesc
+            // 
+            this.ProdDesc.HeaderText = "Descripción";
+            this.ProdDesc.MinimumWidth = 100;
+            this.ProdDesc.Name = "ProdDesc";
+            this.ProdDesc.ReadOnly = true;
+            this.ProdDesc.Width = 250;
+            // 
+            // ProdPrecio
+            // 
+            this.ProdPrecio.HeaderText = "Precio";
+            this.ProdPrecio.MinimumWidth = 100;
+            this.ProdPrecio.Name = "ProdPrecio";
+            this.ProdPrecio.ReadOnly = true;
+            // 
+            // ProdCateg
+            // 
+            this.ProdCateg.HeaderText = "Categoria";
+            this.ProdCateg.MinimumWidth = 100;
+            this.ProdCateg.Name = "ProdCateg";
+            this.ProdCateg.ReadOnly = true;
+            this.ProdCateg.Width = 150;
+            // 
+            // ProdSubcat
+            // 
+            this.ProdSubcat.HeaderText = "Subcategoria";
+            this.ProdSubcat.MinimumWidth = 100;
+            this.ProdSubcat.Name = "ProdSubcat";
+            this.ProdSubcat.ReadOnly = true;
+            this.ProdSubcat.Width = 150;
+            // 
+            // ProdBarcode
+            // 
+            this.ProdBarcode.HeaderText = "Codigo de Barras";
+            this.ProdBarcode.MaxInputLength = 15;
+            this.ProdBarcode.MinimumWidth = 100;
+            this.ProdBarcode.Name = "ProdBarcode";
+            this.ProdBarcode.ReadOnly = true;
+            this.ProdBarcode.Width = 175;
             // 
             // ProductsFrm
             // 
@@ -542,6 +553,8 @@ namespace WinFormPOS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPrice;
         private FontAwesome.Sharp.IconButton iBUpload;
+        private System.Windows.Forms.ComboBox cbMetricUnit;
+        private System.Windows.Forms.Label lbMetricUnit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn product_id;
         private System.Windows.Forms.DataGridViewImageColumn ProdImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
@@ -550,8 +563,6 @@ namespace WinFormPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdCateg;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdSubcat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdBarcode;
-        private System.Windows.Forms.ComboBox cbMetricUnit;
-        private System.Windows.Forms.Label lbMetricUnit;
     }
 
 

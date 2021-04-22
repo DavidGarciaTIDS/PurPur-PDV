@@ -14,12 +14,10 @@ namespace LibPDV.App
         public Types FieldType { get; set; }
         public object Value { get; set; }
 
-
         public DataAdapter() 
         {
 
         }
-
 
         public DataAdapter(DataCollection data)
         {
@@ -27,7 +25,6 @@ namespace LibPDV.App
             this.FieldType = data.FieldType;
             this.Value = data.Value;
         }
-
 
         public DataTable DataColToDataTable(List<List<DataCollection>> DC)
         {

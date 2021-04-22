@@ -33,8 +33,8 @@ namespace WinFormPOS
             this.pTopCheckout = new System.Windows.Forms.Panel();
             this.lbStatusBarcode = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.iBtnSearchPrice = new FontAwesome.Sharp.IconButton();
+            this.NumAmount = new System.Windows.Forms.NumericUpDown();
             this.tbBarCode = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@ namespace WinFormPOS
             this.lbtot = new System.Windows.Forms.Label();
             this.pCheckout.SuspendLayout();
             this.pTopCheckout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAmount)).BeginInit();
             this.pGridCheckout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOS)).BeginInit();
             this.pBottomCheckout.SuspendLayout();
@@ -79,8 +79,8 @@ namespace WinFormPOS
             this.pTopCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.pTopCheckout.Controls.Add(this.lbStatusBarcode);
             this.pTopCheckout.Controls.Add(this.button1);
-            this.pTopCheckout.Controls.Add(this.iconButton1);
-            this.pTopCheckout.Controls.Add(this.numericUpDown1);
+            this.pTopCheckout.Controls.Add(this.iBtnSearchPrice);
+            this.pTopCheckout.Controls.Add(this.NumAmount);
             this.pTopCheckout.Controls.Add(this.tbBarCode);
             this.pTopCheckout.Controls.Add(this.comboBox1);
             this.pTopCheckout.Controls.Add(this.label2);
@@ -110,30 +110,31 @@ namespace WinFormPOS
             this.button1.Text = "Aplicar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // iconButton1
+            // iBtnSearchPrice
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SearchDollar;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(643, 33);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(34, 33);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iBtnSearchPrice.BackColor = System.Drawing.Color.Transparent;
+            this.iBtnSearchPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iBtnSearchPrice.IconChar = FontAwesome.Sharp.IconChar.SearchDollar;
+            this.iBtnSearchPrice.IconColor = System.Drawing.Color.Black;
+            this.iBtnSearchPrice.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iBtnSearchPrice.IconSize = 32;
+            this.iBtnSearchPrice.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.iBtnSearchPrice.Location = new System.Drawing.Point(643, 33);
+            this.iBtnSearchPrice.Name = "iBtnSearchPrice";
+            this.iBtnSearchPrice.Size = new System.Drawing.Size(34, 33);
+            this.iBtnSearchPrice.TabIndex = 5;
+            this.iBtnSearchPrice.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.iBtnSearchPrice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iBtnSearchPrice.UseVisualStyleBackColor = false;
+            this.iBtnSearchPrice.Click += new System.EventHandler(this.iBtnSearchPrice_Click);
             // 
-            // numericUpDown1
+            // NumAmount
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(787, 31);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(53, 40);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.NumAmount.Location = new System.Drawing.Point(787, 31);
+            this.NumAmount.Name = "NumAmount";
+            this.NumAmount.Size = new System.Drawing.Size(53, 40);
+            this.NumAmount.TabIndex = 4;
+            this.NumAmount.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -145,9 +146,15 @@ namespace WinFormPOS
             this.tbBarCode.Name = "tbBarCode";
             this.tbBarCode.Size = new System.Drawing.Size(245, 40);
             this.tbBarCode.TabIndex = 3;
+            this.tbBarCode.Enter += new System.EventHandler(this.tbBarCode_Enter);
+            this.tbBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBarCode_KeyPress);
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "ACCIONES",
+            "ELIMINAR",
+            "EDITAR CANTIDAD"});
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(25, 30);
             this.comboBox1.Name = "comboBox1";
@@ -186,6 +193,7 @@ namespace WinFormPOS
             // 
             // dgvPOS
             // 
+            this.dgvPOS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPOS.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(187)))));
             this.dgvPOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPOS.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -318,6 +326,7 @@ namespace WinFormPOS
             // lbSubtotalAmount
             // 
             this.lbSubtotalAmount.AutoSize = true;
+            this.lbSubtotalAmount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbSubtotalAmount.Location = new System.Drawing.Point(104, 0);
             this.lbSubtotalAmount.Name = "lbSubtotalAmount";
             this.lbSubtotalAmount.Size = new System.Drawing.Size(25, 32);
@@ -354,10 +363,11 @@ namespace WinFormPOS
             this.Name = "CajaFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CajaFrm";
+            this.Load += new System.EventHandler(this.CajaFrm_Load);
             this.pCheckout.ResumeLayout(false);
             this.pTopCheckout.ResumeLayout(false);
             this.pTopCheckout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAmount)).EndInit();
             this.pGridCheckout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOS)).EndInit();
             this.pBottomCheckout.ResumeLayout(false);
@@ -376,8 +386,8 @@ namespace WinFormPOS
         private System.Windows.Forms.DataGridView dgvPOS;
         private System.Windows.Forms.Panel pGridCheckout;
         private System.Windows.Forms.Panel pTopCheckout;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private FontAwesome.Sharp.IconButton iBtnSearchPrice;
+        private System.Windows.Forms.NumericUpDown NumAmount;
         private System.Windows.Forms.TextBox tbBarCode;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
@@ -396,7 +406,5 @@ namespace WinFormPOS
         private System.Windows.Forms.Label lbStatusBarcode;
         private FontAwesome.Sharp.IconButton iBtnCash;
         private FontAwesome.Sharp.IconButton iBtnCard;
-
-
     }
 }

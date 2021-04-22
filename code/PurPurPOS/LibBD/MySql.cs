@@ -156,7 +156,7 @@ namespace LibBD
             return res;
         }
 
-        public override List<List<DataCollection>> Index(string table, OrderBy order)
+        public override List<List<DataCollection>> Index(string table, OrderBy order,List<string> ListColumns)
         {
             // returns a dynamic list of RECORDS/ROWS, each of there are List<object>
             List<List<DataCollection>> res = new List<List<DataCollection>>();
@@ -164,8 +164,19 @@ namespace LibBD
             {
                 //Connect
                 this.Connect();
+                string Columns = "";
+                foreach (string item in ListColumns)
+                {
+                    if (item=="*")
+                    {
+                        Columns = "* ";
+                        break;
+                    }
+                    Columns += item + ",";
+                }
+                Columns.Remove(Columns.Length - 2);
                 //Create and select query
-                string query = $"SELECT * FROM {table} WHERE 1 ORDER BY {order.Name} {order.OrderCriteria}";
+                string query = $"SELECT {Columns} FROM {table} WHERE 1 ORDER BY {order.Name} {order.OrderCriteria}";
                 //instantiate the MySql command
                 com = new MySqlCommand(query, con);
 
@@ -246,11 +257,11 @@ namespace LibBD
 
                 foreach (SearchCollection criteria in search)
                 {
-                    parseWhere += $"{criteria.Name} {criteria.ParseOperator(criteria.Operator)} {criteria.Value} {criteria.ParseLogicOperator(criteria.LogicOp)}";
+                    parseWhere += $"{criteria.Name} {criteria.ParseOperator(criteria.Operator)} {criteria.Value} {criteria.ParseLogicOperator(criteria.LogicOp)} ";
                 }
-
+                parseWhere=parseWhere.Remove(parseWhere.Length - 2);
                 //Create and select query
-                string query = $"SELECT {parseFields} FROM {table} WHERE {parseWhere} ";
+                string query = $"SELECT {parseFields} FROM {table} WHERE {parseWhere}";
                 //instantiate the MySql command
                 com = new MySqlCommand(query, con);
 

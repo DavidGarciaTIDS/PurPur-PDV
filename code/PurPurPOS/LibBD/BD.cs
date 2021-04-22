@@ -70,8 +70,9 @@ namespace LibBD
         /// </summary>
         /// <param name="table">Table from which the data will be retrieved</param>
         /// <param name="order">the field to be order by (ASC, DESC)</param>
+        /// <param name="ListColumns">the columns the DB will return</param>
         /// <returns>a list of objects that will be represent a row each on of them , and every one is List<Object></returns>
-        public abstract List<List<DataCollection>> Index(string table, OrderBy order);
+        public abstract List<List<DataCollection>> Index(string table, OrderBy order, List<string> ListColumns);
         /// <summary>
         /// Opens the connection to the SERVER established by the connectionString
         /// </summary>

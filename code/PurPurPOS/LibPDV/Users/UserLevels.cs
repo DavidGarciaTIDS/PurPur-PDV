@@ -10,6 +10,7 @@ namespace LibPDV.Users
     {
         ADMIN,
         CASHIER,
+        SUPERUSER,
         UNKWOWN
     }
 }

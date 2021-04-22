@@ -155,7 +155,7 @@ namespace LibBD
             return res;
         }
 
-        public override List<List<DataCollection>> Index(string table, OrderBy order)
+        public override List<List<DataCollection>> Index(string table, OrderBy order, List<string> ListColumns)
         {
             // returns a dynamic list of RECORDS/ROWS, each of there are List<object>
             List<List<DataCollection>> res = new List<List<DataCollection>>();
@@ -163,8 +163,14 @@ namespace LibBD
             {
                 //Connect
                 this.Connect();
+                string Columns = "";
+                foreach (string item in ListColumns)
+                {
+                    Columns += item + ",";
+                }
+                Columns.Remove(Columns.Length - 1);
                 //Create and select query
-                string query = $"SELECT * FROM {table} WHERE 1 ORDER BY {order.Name} {order.OrderCriteria}";
+                string query = $"SELECT {Columns} FROM {table} WHERE 1 ORDER BY {order.Name} {order.OrderCriteria}";
                 //instantiate the SQL command
                 com = new SqlCommand(query, con);
 

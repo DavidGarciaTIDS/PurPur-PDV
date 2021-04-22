@@ -8,6 +8,7 @@
         LESS_THAN,
         GREATER_THAN_EQUALS,
         LESS_THAN_EQUALS,
-        LIKE
+        LIKE,
+        NULL
     }
 }

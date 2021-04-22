@@ -33,9 +33,9 @@ namespace LibPDV.App
         {
             return libBD.Delete(this.table, id);
         }
-        protected List<List<DataCollection>> index(OrderBy order) 
+        protected List<List<DataCollection>> index(OrderBy order,List<string> Fields) 
         {            
-            return libBD.Index(this.table,order);
+            return libBD.Index(this.table,order,Fields);
         }
         protected List<List<DataCollection>> Read(List<string> fieldlist, List<SearchCollection>search) 
         {

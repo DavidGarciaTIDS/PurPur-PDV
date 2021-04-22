@@ -85,6 +85,9 @@ namespace LibBD
                 case "time":
                     this.FieldType = Types.TIME;
                     break;
+                case "float":
+                    this.FieldType = Types.TIME;
+                    break;
 
                 default:
                     this.FieldType = Types.VARCHAR;

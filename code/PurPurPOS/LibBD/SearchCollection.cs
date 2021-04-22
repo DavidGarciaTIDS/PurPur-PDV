@@ -13,7 +13,11 @@
         {
             Name = name;
             Operator = ope;
-            Value = value;
+            if (isVarchar)
+                Value = $"'{value}'";
+            else
+                Value = value;
+
             IsVarchar = isVarchar;
             LogicOp = logicOp;
         }
@@ -55,10 +59,11 @@
                 case CriteriaOperator.NOT_EQUALS:
                     res = "!=";
                     break;
-
-
+                case CriteriaOperator.NULL:
+                    res = "";
+                    break;
                 default:
-                    res = "LIKE";
+                    res = "";
                     break;
             }
             return res;

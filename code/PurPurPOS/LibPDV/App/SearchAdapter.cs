@@ -23,6 +23,25 @@ namespace LibPDV.App
             this.IsVarchar = search.IsVarchar;
             this.LogicOp = search.LogicOp;
         }
+        
+        public SearchAdapter(string name, CriteriaOperator Operat, object value,bool isString, LogicOperator LogicOper= LogicOperator.NOTHING) 
+        {
+            this.Name = name;
+            this.Operator = Operat;
+            this.Value = value;
+            this.IsVarchar = isString;
+            this.LogicOp = LogicOper;
+        }
+
+
+        public SearchAdapter() 
+        {
+            this.Name = "";
+            this.Value = 1;
+            this.Operator = CriteriaOperator.NULL;
+            this.IsVarchar = false;
+            this.LogicOp = LogicOperator.NOTHING;
+        }
 
         public SearchCollection adaptToCollect() 
         {
