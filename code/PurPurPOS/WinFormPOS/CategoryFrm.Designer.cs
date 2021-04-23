@@ -106,6 +106,7 @@ namespace WinFormPOS
             this.iBAddCat.Text = "Añadir";
             this.iBAddCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBAddCat.UseVisualStyleBackColor = true;
+            this.iBAddCat.Click += new System.EventHandler(this.iBAddCat_Click);
             // 
             // Cat
             // 
@@ -140,6 +141,7 @@ namespace WinFormPOS
             this.iBEditCat.Text = "Editar";
             this.iBEditCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBEditCat.UseVisualStyleBackColor = true;
+            this.iBEditCat.Click += new System.EventHandler(this.iBEditCat_Click);
             // 
             // iBGuardarCat
             // 
@@ -158,6 +160,7 @@ namespace WinFormPOS
             this.iBGuardarCat.Text = "Guardar";
             this.iBGuardarCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBGuardarCat.UseVisualStyleBackColor = true;
+            this.iBGuardarCat.Click += new System.EventHandler(this.iBGuardarCat_Click);
             // 
             // cbCategory
             // 
@@ -260,6 +263,7 @@ namespace WinFormPOS
             this.iBAddSubcat.Text = "Añadir";
             this.iBAddSubcat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBAddSubcat.UseVisualStyleBackColor = true;
+            this.iBAddSubcat.Click += new System.EventHandler(this.iBAddSubcat_Click);
             // 
             // iBRemoveSubcat
             // 
@@ -294,6 +298,7 @@ namespace WinFormPOS
             this.iBEditSubcat.Text = "Editar";
             this.iBEditSubcat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBEditSubcat.UseVisualStyleBackColor = true;
+            this.iBEditSubcat.Click += new System.EventHandler(this.iBEditSubcat_Click);
             // 
             // iBGuardarSubcate
             // 
@@ -338,6 +343,7 @@ namespace WinFormPOS
             this.dgvSubcat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSubcat.Size = new System.Drawing.Size(546, 360);
             this.dgvSubcat.TabIndex = 11;
+            this.dgvSubcat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubcat_CellDoubleClick);
             // 
             // tbSubcatDescription
             // 

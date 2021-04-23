@@ -162,6 +162,7 @@ namespace WinFormPOS
             this.iBEdit.Text = "Editar";
             this.iBEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBEdit.UseVisualStyleBackColor = true;
+            this.iBEdit.Click += new System.EventHandler(this.iBEdit_Click);
             // 
             // iBGuardar
             // 
@@ -180,6 +181,7 @@ namespace WinFormPOS
             this.iBGuardar.Text = "Guardar";
             this.iBGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iBGuardar.UseVisualStyleBackColor = true;
+            this.iBGuardar.Click += new System.EventHandler(this.iBGuardar_Click);
             // 
             // pProduct
             // 

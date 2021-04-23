@@ -14,12 +14,27 @@ namespace LibPDV.Products
         public string name { get; set; }
         public string description { get; set; }
         public List<string> Subcategories = new List<string>();
+        List<DataCollection> data;
 
         public Category() : base("categories", new List<string>() { "id", "name", "description" })
         {
 
         }
+        public bool Create(string name, string description)
+        {
+            data = new List<DataCollection>();
+            data.Add(new DataCollection("name", Types.VARCHAR, name));
+            data.Add(new DataCollection("description", Types.VARCHAR, description));
+            
+            bool res = base.Create(data);
 
+            if (!res)
+            {
+                this.ERROR = BD.ERROR;
+            }
+            return res;
+
+        }
         public List<List<DataCollection>> Read(List<string> fields, string tabla2, string[] onfields, List<SearchAdapter> search)
         {
             return base.Read(fields, tabla2, new List<string> { }, new List<SearchCollection> { });
@@ -34,7 +49,14 @@ namespace LibPDV.Products
             }
             return base.Read(field, searchlist);
         }
+        public bool Update(int id, string name, string description)
+        {
+            data = new List<DataCollection>();
+            data.Add(new DataCollection("name", Types.VARCHAR, name));
+            data.Add(new DataCollection("description", Types.VARCHAR, description));
 
+            return base.Update(data, id);
+        }
         public List<List<DataCollection>> Index(string ColumNameOrder, bool truDesc, List<string> Columns)
         {
             OrderBy order;
@@ -44,7 +66,10 @@ namespace LibPDV.Products
                 order = new OrderBy(ColumNameOrder, Order.ASC);
             return base.index(order, Columns);
         }
-
+        public bool Delete(int id)
+        {
+            return base.Delete(id);
+        }
 
 
         public string[] ListToArray(List<Category> list, string property)

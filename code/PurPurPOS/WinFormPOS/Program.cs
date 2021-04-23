@@ -17,7 +17,7 @@ namespace WinFormPOS
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BaseWinFrm());
+            Application.Run(new LoginFrm());
         }
     }
 }

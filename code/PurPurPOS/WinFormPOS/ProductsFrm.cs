@@ -67,7 +67,11 @@ namespace WinFormPOS
         private void iBRemove_Click(object sender, EventArgs e)
         {
             prod = dGVProducts.SelectedRows[0].DataBoundItem as Products;
-            prod.Delete(prod.Id);
+            if (prod != null)
+            {
+                prod.Delete(prod.Id);
+
+            }
         }
 
         private void cbCateg_SelectedValueChanged(object sender, EventArgs e)
@@ -93,29 +97,7 @@ namespace WinFormPOS
 
         private void dGVProducts_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                prod = dGVProducts.SelectedRows[0].DataBoundItem as Products;
-
-                Subcategory tempSubcat = new Subcategory();
-                tempSubcat = BaseWinFrm.ListSubcategory.Find(x => x.id == prod.subcategory);
-                Category tempCat = new Category();
-                tempCat = BaseWinFrm.ListCategory.Find(x => x.id == tempSubcat.catId);
-                tBNameProd.Text = prod.Name;
-                tbBarCode.Text = prod.BarCode;
-                tbDescProd.Text = prod.Description;
-                tbPrice.Text = prod.Price.ToString();
-                cbBrand.SelectedIndex = cbBrand.FindString(prod.brandName);
-                cbCateg.SelectedIndex = cbCateg.FindString(tempCat.name.Replace("'", ""));
-                cbSubcat.SelectedIndex = cbSubcat.FindString(prod.subcategoryName);
-                cbMetricUnit.SelectedIndex = cbMetricUnit.FindString(prod.measure_unit.ToString());
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrio un error al tomar los datos del producto seleccionado" + ex);
-                throw;
-            }
+            SelectProdToEdit();
         }
         public void FillLists()
         {
@@ -167,6 +149,54 @@ namespace WinFormPOS
 
                 }
             }
+        }
+
+        private void iBEdit_Click(object sender, EventArgs e)
+        {
+            SelectProdToEdit();
+        }
+        private void SelectProdToEdit()
+        {
+
+            iBGuardar.Enabled = true;
+            iBRemove.Enabled = true;
+
+            prod = dGVProducts.SelectedRows[0].DataBoundItem as Products;
+
+            Subcategory tempSubcat = new Subcategory();
+            tempSubcat = BaseWinFrm.ListSubcategory.Find(x => x.id == prod.subcategory);
+            Category tempCat = new Category();
+            tempCat = BaseWinFrm.ListCategory.Find(x => x.id == tempSubcat.catId);
+            tBNameProd.Text = prod.Name;
+            tbBarCode.Text = prod.BarCode;
+            tbDescProd.Text = prod.Description;
+            tbPrice.Text = prod.Price.ToString();
+            cbBrand.SelectedIndex = cbBrand.FindString(prod.brandName);
+            cbCateg.SelectedIndex = cbCateg.FindString(tempCat.name.Replace("'", ""));
+            cbSubcat.SelectedIndex = cbSubcat.FindString(prod.subcategoryName);
+            cbMetricUnit.SelectedIndex = cbMetricUnit.FindString(prod.measure_unit.ToString());
+
+        }
+
+        private void iBGuardar_Click(object sender, EventArgs e)
+        {
+            prod.Name = tBNameProd.Text;
+            prod.BarCode = tbBarCode.Text;
+            prod.Description = tbDescProd.Text;
+            prod.Price = Double.Parse(tbPrice.Text);
+            prod.brand = BaseWinFrm.ListBrand.Find(x => x.name == cbBrand.Text).id;
+            prod.subcategory = BaseWinFrm.ListSubcategory.Find(x => x.name == cbSubcat.Text).id;
+            prod.measure_unit = (MeasureUnits)Enum.Parse(typeof(MeasureUnits), cbMetricUnit.Text);
+
+
+            if (prod.Update(prod.Id, prod.Name, prod.Description, prod.Price, prod.BarCode, prod.brand, prod.subcategory, prod.measure_unit, prod.sku))
+            {
+                MessageBox.Show("se actualizo correctamente");
+
+                FillLists();
+                FillComboBox();
+            }
+            iBGuardar.Enabled = false;
         }
     }
 }
