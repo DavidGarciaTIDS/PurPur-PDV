@@ -56,14 +56,6 @@ namespace WinFormPOS
             this.LbMarca = new System.Windows.Forms.Label();
             this.LbCategory = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.product_id = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ProdImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdCateg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdSubcat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPProduct)).BeginInit();
             this.pProduct.SuspendLayout();
@@ -78,20 +70,12 @@ namespace WinFormPOS
             this.dGVProducts.AllowUserToDeleteRows = false;
             this.dGVProducts.AllowUserToOrderColumns = true;
             this.dGVProducts.AllowUserToResizeRows = false;
+            this.dGVProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(142)))));
             this.dGVProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dGVProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dGVProducts.ColumnHeadersHeight = 35;
             this.dGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dGVProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.product_id,
-            this.ProdImage,
-            this.ProdName,
-            this.ProdDesc,
-            this.ProdPrecio,
-            this.ProdCateg,
-            this.ProdSubcat,
-            this.ProdBarcode});
             this.dGVProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dGVProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dGVProducts.GridColor = System.Drawing.SystemColors.Control;
@@ -101,9 +85,12 @@ namespace WinFormPOS
             this.dGVProducts.Name = "dGVProducts";
             this.dGVProducts.ReadOnly = true;
             this.dGVProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dGVProducts.RowHeadersVisible = false;
             this.dGVProducts.RowTemplate.Height = 25;
+            this.dGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVProducts.Size = new System.Drawing.Size(1260, 414);
             this.dGVProducts.TabIndex = 15;
+            this.dGVProducts.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVProducts_CellContentDoubleClick);
             // 
             // iPProduct
             // 
@@ -178,6 +165,7 @@ namespace WinFormPOS
             // 
             // iBGuardar
             // 
+            this.iBGuardar.Enabled = false;
             this.iBGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.iBGuardar.IconColor = System.Drawing.Color.Black;
             this.iBGuardar.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -404,6 +392,7 @@ namespace WinFormPOS
             this.cbCateg.Name = "cbCateg";
             this.cbCateg.Size = new System.Drawing.Size(244, 40);
             this.cbCateg.TabIndex = 24;
+            this.cbCateg.SelectedIndexChanged += new System.EventHandler(this.cbCateg_SelectedIndexChanged);
             this.cbCateg.SelectedValueChanged += new System.EventHandler(this.cbCateg_SelectedValueChanged);
             // 
             // LbMarca
@@ -438,68 +427,6 @@ namespace WinFormPOS
             this.label1.Size = new System.Drawing.Size(67, 32);
             this.label1.TabIndex = 28;
             this.label1.Text = "Precio:";
-            // 
-            // product_id
-            // 
-            this.product_id.HeaderText = "ID";
-            this.product_id.MinimumWidth = 100;
-            this.product_id.Name = "product_id";
-            this.product_id.ReadOnly = true;
-            // 
-            // ProdImage
-            // 
-            this.ProdImage.HeaderText = "Image";
-            this.ProdImage.MinimumWidth = 100;
-            this.ProdImage.Name = "ProdImage";
-            this.ProdImage.ReadOnly = true;
-            // 
-            // ProdName
-            // 
-            this.ProdName.HeaderText = "Productos";
-            this.ProdName.MinimumWidth = 100;
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            this.ProdName.Width = 175;
-            // 
-            // ProdDesc
-            // 
-            this.ProdDesc.HeaderText = "Descripción";
-            this.ProdDesc.MinimumWidth = 100;
-            this.ProdDesc.Name = "ProdDesc";
-            this.ProdDesc.ReadOnly = true;
-            this.ProdDesc.Width = 250;
-            // 
-            // ProdPrecio
-            // 
-            this.ProdPrecio.HeaderText = "Precio";
-            this.ProdPrecio.MinimumWidth = 100;
-            this.ProdPrecio.Name = "ProdPrecio";
-            this.ProdPrecio.ReadOnly = true;
-            // 
-            // ProdCateg
-            // 
-            this.ProdCateg.HeaderText = "Categoria";
-            this.ProdCateg.MinimumWidth = 100;
-            this.ProdCateg.Name = "ProdCateg";
-            this.ProdCateg.ReadOnly = true;
-            this.ProdCateg.Width = 150;
-            // 
-            // ProdSubcat
-            // 
-            this.ProdSubcat.HeaderText = "Subcategoria";
-            this.ProdSubcat.MinimumWidth = 100;
-            this.ProdSubcat.Name = "ProdSubcat";
-            this.ProdSubcat.ReadOnly = true;
-            this.ProdSubcat.Width = 150;
-            // 
-            // ProdBarcode
-            // 
-            this.ProdBarcode.HeaderText = "Codigo de Barras";
-            this.ProdBarcode.MaxInputLength = 15;
-            this.ProdBarcode.MinimumWidth = 100;
-            this.ProdBarcode.Name = "ProdBarcode";
-            this.ProdBarcode.ReadOnly = true;
-            this.ProdBarcode.Width = 175;
             // 
             // ProductsFrm
             // 
@@ -555,14 +482,6 @@ namespace WinFormPOS
         private FontAwesome.Sharp.IconButton iBUpload;
         private System.Windows.Forms.ComboBox cbMetricUnit;
         private System.Windows.Forms.Label lbMetricUnit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn product_id;
-        private System.Windows.Forms.DataGridViewImageColumn ProdImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdCateg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdSubcat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdBarcode;
     }
 
 

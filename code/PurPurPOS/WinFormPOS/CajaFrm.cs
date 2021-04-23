@@ -17,13 +17,14 @@ namespace WinFormPOS
         private Products Prod = new Products();
         private bool SearchPrice = false;
         private DataTable table = new DataTable();
-        private object[] RowSelc;
         List<string> ListVarchar = new List<string> { "id", "name", "description", "amount", "price" };
         List<Products> ListProd = new List<Products>();
         SearchAdapter Sadapt;
         DataAdapter Dadapt = new DataAdapter();
         List<SearchAdapter> Slist;
         List<object[]> Ticket = new List<object[]>();
+        double subTotal;
+
         public CajaFrm()
         {
             InitializeComponent();
@@ -38,14 +39,21 @@ namespace WinFormPOS
         {
             SearchPrice = !SearchPrice;
             if (SearchPrice)
+            {
                 iBtnSearchPrice.BackColor = Color.FromArgb(46, 131, 217);
+                lbStatusBarcode.Text = "Buscar Precio";
+            }
             else
+            {
                 iBtnSearchPrice.BackColor = Color.FromArgb(196, 196, 196);
+                lbStatusBarcode.Text = "Escaneando";
+
+            }
         }
 
         private void tbBarCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.ToString()[0]=='\r')
+            if (e.KeyChar.ToString()[0] == '\r')
             {
                 if (tbBarCode.Text.Length > 10 && tbBarCode.Text.Length < 16)
                 {
@@ -81,7 +89,7 @@ namespace WinFormPOS
                                 Ticket.Add(new object[] { item.Id, item.Name, item.Description, (double)NumAmount.Value, item.Price * (double)NumAmount.Value });
                             }
                             dgvPOS.Rows.Clear();
-                            double subTotal = 0;
+                            subTotal = 0;
                             foreach (object[] rows in Ticket)
                             {
                                 dgvPOS.Rows.Add(rows);
@@ -111,6 +119,20 @@ namespace WinFormPOS
             dgvPOS.Columns["ID"].Visible = false;
 
 
+        }
+
+        private void tbPayment_TextChanged(object sender, EventArgs e)
+        {
+            double cambio = 0;
+            if (tbPayment.Text!="")
+            {
+                cambio = Double.Parse(tbPayment.Text) - subTotal;
+                lbCambioAmount.Text = $"$  { cambio.ToString()}";
+                if (cambio > -1)
+                    lbCambioAmount.ForeColor = Color.Black;
+                else
+                    lbCambioAmount.ForeColor = Color.Red;
+            }
         }
     }
 }

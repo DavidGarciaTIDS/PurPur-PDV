@@ -30,204 +30,342 @@ namespace WinFormPOS
         private void InitializeComponent()
         {
             this.pCategory = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BrandImage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BrandDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pButtons = new System.Windows.Forms.Panel();
+            this.iBAddCat = new FontAwesome.Sharp.IconButton();
+            this.Cat = new FontAwesome.Sharp.IconButton();
+            this.iBEditCat = new FontAwesome.Sharp.IconButton();
+            this.iBGuardarCat = new FontAwesome.Sharp.IconButton();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.dgvCat = new System.Windows.Forms.DataGridView();
             this.LbDescCat = new System.Windows.Forms.Label();
             this.LbCateg = new System.Windows.Forms.Label();
-            this.tBDescription = new System.Windows.Forms.TextBox();
-            this.tBCategory = new System.Windows.Forms.TextBox();
+            this.tBCatDescription = new System.Windows.Forms.TextBox();
             this.pSubcategory = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.iBAddSubcat = new FontAwesome.Sharp.IconButton();
+            this.iBRemoveSubcat = new FontAwesome.Sharp.IconButton();
+            this.iBEditSubcat = new FontAwesome.Sharp.IconButton();
+            this.iBGuardarSubcate = new FontAwesome.Sharp.IconButton();
+            this.cbSubcategory = new System.Windows.Forms.ComboBox();
+            this.dgvSubcat = new System.Windows.Forms.DataGridView();
+            this.tbSubcatDescription = new System.Windows.Forms.TextBox();
             this.LbDescSub = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.LbSubcat = new System.Windows.Forms.Label();
             this.pCatSubcat = new System.Windows.Forms.Panel();
             this.pCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).BeginInit();
             this.pSubcategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubcat)).BeginInit();
             this.pCatSubcat.SuspendLayout();
             this.SuspendLayout();
             // 
             // pCategory
             // 
             this.pCategory.AutoSize = true;
-            this.pCategory.Controls.Add(this.dataGridView1);
+            this.pCategory.Controls.Add(this.pButtons);
+            this.pCategory.Controls.Add(this.cbCategory);
+            this.pCategory.Controls.Add(this.dgvCat);
             this.pCategory.Controls.Add(this.LbDescCat);
             this.pCategory.Controls.Add(this.LbCateg);
-            this.pCategory.Controls.Add(this.tBDescription);
-            this.pCategory.Controls.Add(this.tBCategory);
+            this.pCategory.Controls.Add(this.tBCatDescription);
             this.pCategory.Dock = System.Windows.Forms.DockStyle.Left;
             this.pCategory.Location = new System.Drawing.Point(0, 0);
             this.pCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pCategory.MinimumSize = new System.Drawing.Size(570, 400);
+            this.pCategory.MinimumSize = new System.Drawing.Size(630, 400);
             this.pCategory.Name = "pCategory";
-            this.pCategory.Size = new System.Drawing.Size(570, 531);
+            this.pCategory.Size = new System.Drawing.Size(630, 668);
             this.pCategory.TabIndex = 2;
             // 
-            // dataGridView1
+            // pButtons
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BrandImage,
-            this.BrandName,
-            this.BrandDesc});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 117);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.dataGridView1.MinimumSize = new System.Drawing.Size(545, 360);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(545, 360);
-            this.dataGridView1.TabIndex = 6;
+            this.pButtons.Controls.Add(this.iBAddCat);
+            this.pButtons.Controls.Add(this.Cat);
+            this.pButtons.Controls.Add(this.iBEditCat);
+            this.pButtons.Controls.Add(this.iBGuardarCat);
+            this.pButtons.Location = new System.Drawing.Point(13, 162);
+            this.pButtons.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pButtons.Name = "pButtons";
+            this.pButtons.Size = new System.Drawing.Size(603, 84);
+            this.pButtons.TabIndex = 36;
             // 
-            // BrandImage
+            // iBAddCat
             // 
-            this.BrandImage.HeaderText = "Image";
-            this.BrandImage.Name = "BrandImage";
-            this.BrandImage.ReadOnly = true;
+            this.iBAddCat.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iBAddCat.IconColor = System.Drawing.Color.Black;
+            this.iBAddCat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBAddCat.IconSize = 32;
+            this.iBAddCat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBAddCat.Location = new System.Drawing.Point(422, 19);
+            this.iBAddCat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBAddCat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBAddCat.Name = "iBAddCat";
+            this.iBAddCat.Size = new System.Drawing.Size(129, 32);
+            this.iBAddCat.TabIndex = 19;
+            this.iBAddCat.Text = "Añadir";
+            this.iBAddCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBAddCat.UseVisualStyleBackColor = true;
             // 
-            // BrandName
+            // Cat
             // 
-            this.BrandName.HeaderText = "Categoria";
-            this.BrandName.Name = "BrandName";
-            this.BrandName.ReadOnly = true;
-            this.BrandName.Width = 150;
+            this.Cat.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.Cat.IconColor = System.Drawing.Color.Black;
+            this.Cat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.Cat.IconSize = 32;
+            this.Cat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cat.Location = new System.Drawing.Point(288, 19);
+            this.Cat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Cat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.Cat.Name = "Cat";
+            this.Cat.Size = new System.Drawing.Size(129, 32);
+            this.Cat.TabIndex = 20;
+            this.Cat.Text = "Borrar";
+            this.Cat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Cat.UseVisualStyleBackColor = true;
             // 
-            // BrandDesc
+            // iBEditCat
             // 
-            this.BrandDesc.HeaderText = "Descripción";
-            this.BrandDesc.Name = "BrandDesc";
-            this.BrandDesc.ReadOnly = true;
-            this.BrandDesc.Width = 250;
+            this.iBEditCat.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iBEditCat.IconColor = System.Drawing.Color.Black;
+            this.iBEditCat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBEditCat.IconSize = 32;
+            this.iBEditCat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBEditCat.Location = new System.Drawing.Point(19, 19);
+            this.iBEditCat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBEditCat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBEditCat.Name = "iBEditCat";
+            this.iBEditCat.Size = new System.Drawing.Size(129, 32);
+            this.iBEditCat.TabIndex = 21;
+            this.iBEditCat.Text = "Editar";
+            this.iBEditCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBEditCat.UseVisualStyleBackColor = true;
+            // 
+            // iBGuardarCat
+            // 
+            this.iBGuardarCat.Enabled = false;
+            this.iBGuardarCat.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.iBGuardarCat.IconColor = System.Drawing.Color.Black;
+            this.iBGuardarCat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBGuardarCat.IconSize = 32;
+            this.iBGuardarCat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBGuardarCat.Location = new System.Drawing.Point(153, 19);
+            this.iBGuardarCat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBGuardarCat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBGuardarCat.Name = "iBGuardarCat";
+            this.iBGuardarCat.Size = new System.Drawing.Size(129, 32);
+            this.iBGuardarCat.TabIndex = 22;
+            this.iBGuardarCat.Text = "Guardar";
+            this.iBGuardarCat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBGuardarCat.UseVisualStyleBackColor = true;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(39, 49);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(221, 35);
+            this.cbCategory.TabIndex = 7;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
+            // 
+            // dgvCat
+            // 
+            this.dgvCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCat.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCat.Location = new System.Drawing.Point(41, 248);
+            this.dgvCat.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dgvCat.MinimumSize = new System.Drawing.Size(545, 360);
+            this.dgvCat.Name = "dgvCat";
+            this.dgvCat.ReadOnly = true;
+            this.dgvCat.RowHeadersVisible = false;
+            this.dgvCat.RowTemplate.Height = 25;
+            this.dgvCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCat.Size = new System.Drawing.Size(545, 360);
+            this.dgvCat.TabIndex = 6;
+            this.dgvCat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCat_CellDoubleClick);
+            this.dgvCat.SelectionChanged += new System.EventHandler(this.dgvCat_SelectionChanged);
             // 
             // LbDescCat
             // 
             this.LbDescCat.AutoSize = true;
-            this.LbDescCat.Location = new System.Drawing.Point(188, 20);
+            this.LbDescCat.Location = new System.Drawing.Point(304, 19);
             this.LbDescCat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbDescCat.Name = "LbDescCat";
-            this.LbDescCat.Size = new System.Drawing.Size(69, 15);
+            this.LbDescCat.Size = new System.Drawing.Size(101, 27);
             this.LbDescCat.TabIndex = 5;
             this.LbDescCat.Text = "Descripción";
             // 
             // LbCateg
             // 
             this.LbCateg.AutoSize = true;
-            this.LbCateg.Location = new System.Drawing.Point(11, 20);
+            this.LbCateg.Location = new System.Drawing.Point(39, 19);
             this.LbCateg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbCateg.Name = "LbCateg";
-            this.LbCateg.Size = new System.Drawing.Size(58, 15);
+            this.LbCateg.Size = new System.Drawing.Size(86, 27);
             this.LbCateg.TabIndex = 4;
             this.LbCateg.Text = "Categoria";
             // 
-            // tBDescription
+            // tBCatDescription
             // 
-            this.tBDescription.Location = new System.Drawing.Point(188, 37);
-            this.tBDescription.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tBDescription.Multiline = true;
-            this.tBDescription.Name = "tBDescription";
-            this.tBDescription.Size = new System.Drawing.Size(171, 69);
-            this.tBDescription.TabIndex = 2;
-            // 
-            // tBCategory
-            // 
-            this.tBCategory.Location = new System.Drawing.Point(11, 39);
-            this.tBCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tBCategory.Name = "tBCategory";
-            this.tBCategory.Size = new System.Drawing.Size(175, 23);
-            this.tBCategory.TabIndex = 1;
+            this.tBCatDescription.Location = new System.Drawing.Point(304, 47);
+            this.tBCatDescription.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tBCatDescription.Multiline = true;
+            this.tBCatDescription.Name = "tBCatDescription";
+            this.tBCatDescription.Size = new System.Drawing.Size(282, 108);
+            this.tBCatDescription.TabIndex = 2;
             // 
             // pSubcategory
             // 
             this.pSubcategory.AutoSize = true;
-            this.pSubcategory.Controls.Add(this.dataGridView2);
-            this.pSubcategory.Controls.Add(this.textBox1);
+            this.pSubcategory.Controls.Add(this.panel1);
+            this.pSubcategory.Controls.Add(this.cbSubcategory);
+            this.pSubcategory.Controls.Add(this.dgvSubcat);
+            this.pSubcategory.Controls.Add(this.tbSubcatDescription);
             this.pSubcategory.Controls.Add(this.LbDescSub);
-            this.pSubcategory.Controls.Add(this.textBox2);
             this.pSubcategory.Controls.Add(this.LbSubcat);
             this.pSubcategory.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pSubcategory.Location = new System.Drawing.Point(570, 0);
+            this.pSubcategory.Location = new System.Drawing.Point(630, 0);
             this.pSubcategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pSubcategory.MinimumSize = new System.Drawing.Size(570, 400);
+            this.pSubcategory.MinimumSize = new System.Drawing.Size(630, 400);
             this.pSubcategory.Name = "pSubcategory";
-            this.pSubcategory.Size = new System.Drawing.Size(570, 531);
+            this.pSubcategory.Size = new System.Drawing.Size(630, 668);
             this.pSubcategory.TabIndex = 4;
             // 
-            // dataGridView2
+            // panel1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 117);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.dataGridView2.MinimumSize = new System.Drawing.Size(545, 360);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(546, 360);
-            this.dataGridView2.TabIndex = 11;
+            this.panel1.Controls.Add(this.iBAddSubcat);
+            this.panel1.Controls.Add(this.iBRemoveSubcat);
+            this.panel1.Controls.Add(this.iBEditSubcat);
+            this.panel1.Controls.Add(this.iBGuardarSubcate);
+            this.panel1.Location = new System.Drawing.Point(14, 162);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(603, 84);
+            this.panel1.TabIndex = 37;
             // 
-            // dataGridViewTextBoxColumn1
+            // iBAddSubcat
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Image";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iBAddSubcat.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iBAddSubcat.IconColor = System.Drawing.Color.Black;
+            this.iBAddSubcat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBAddSubcat.IconSize = 32;
+            this.iBAddSubcat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBAddSubcat.Location = new System.Drawing.Point(422, 19);
+            this.iBAddSubcat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBAddSubcat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBAddSubcat.Name = "iBAddSubcat";
+            this.iBAddSubcat.Size = new System.Drawing.Size(129, 32);
+            this.iBAddSubcat.TabIndex = 19;
+            this.iBAddSubcat.Text = "Añadir";
+            this.iBAddSubcat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBAddSubcat.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // iBRemoveSubcat
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Subcategoria";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.iBRemoveSubcat.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.iBRemoveSubcat.IconColor = System.Drawing.Color.Black;
+            this.iBRemoveSubcat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBRemoveSubcat.IconSize = 32;
+            this.iBRemoveSubcat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBRemoveSubcat.Location = new System.Drawing.Point(288, 19);
+            this.iBRemoveSubcat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBRemoveSubcat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBRemoveSubcat.Name = "iBRemoveSubcat";
+            this.iBRemoveSubcat.Size = new System.Drawing.Size(129, 32);
+            this.iBRemoveSubcat.TabIndex = 20;
+            this.iBRemoveSubcat.Text = "Borrar";
+            this.iBRemoveSubcat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBRemoveSubcat.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // iBEditSubcat
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 250;
+            this.iBEditSubcat.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iBEditSubcat.IconColor = System.Drawing.Color.Black;
+            this.iBEditSubcat.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBEditSubcat.IconSize = 32;
+            this.iBEditSubcat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBEditSubcat.Location = new System.Drawing.Point(19, 19);
+            this.iBEditSubcat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBEditSubcat.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBEditSubcat.Name = "iBEditSubcat";
+            this.iBEditSubcat.Size = new System.Drawing.Size(129, 32);
+            this.iBEditSubcat.TabIndex = 21;
+            this.iBEditSubcat.Text = "Editar";
+            this.iBEditSubcat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBEditSubcat.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // iBGuardarSubcate
             // 
-            this.textBox1.Location = new System.Drawing.Point(189, 37);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 69);
-            this.textBox1.TabIndex = 8;
+            this.iBGuardarSubcate.Enabled = false;
+            this.iBGuardarSubcate.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.iBGuardarSubcate.IconColor = System.Drawing.Color.Black;
+            this.iBGuardarSubcate.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iBGuardarSubcate.IconSize = 32;
+            this.iBGuardarSubcate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iBGuardarSubcate.Location = new System.Drawing.Point(153, 19);
+            this.iBGuardarSubcate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iBGuardarSubcate.MinimumSize = new System.Drawing.Size(129, 32);
+            this.iBGuardarSubcate.Name = "iBGuardarSubcate";
+            this.iBGuardarSubcate.Size = new System.Drawing.Size(129, 32);
+            this.iBGuardarSubcate.TabIndex = 22;
+            this.iBGuardarSubcate.Text = "Guardar";
+            this.iBGuardarSubcate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iBGuardarSubcate.UseVisualStyleBackColor = true;
+            // 
+            // cbSubcategory
+            // 
+            this.cbSubcategory.Enabled = false;
+            this.cbSubcategory.FormattingEnabled = true;
+            this.cbSubcategory.Location = new System.Drawing.Point(34, 49);
+            this.cbSubcategory.Name = "cbSubcategory";
+            this.cbSubcategory.Size = new System.Drawing.Size(250, 35);
+            this.cbSubcategory.TabIndex = 12;
+            // 
+            // dgvSubcat
+            // 
+            this.dgvSubcat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSubcat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubcat.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvSubcat.Enabled = false;
+            this.dgvSubcat.Location = new System.Drawing.Point(34, 248);
+            this.dgvSubcat.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dgvSubcat.MinimumSize = new System.Drawing.Size(545, 360);
+            this.dgvSubcat.Name = "dgvSubcat";
+            this.dgvSubcat.ReadOnly = true;
+            this.dgvSubcat.RowHeadersVisible = false;
+            this.dgvSubcat.RowTemplate.Height = 25;
+            this.dgvSubcat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSubcat.Size = new System.Drawing.Size(546, 360);
+            this.dgvSubcat.TabIndex = 11;
+            // 
+            // tbSubcatDescription
+            // 
+            this.tbSubcatDescription.Enabled = false;
+            this.tbSubcatDescription.Location = new System.Drawing.Point(309, 47);
+            this.tbSubcatDescription.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tbSubcatDescription.Multiline = true;
+            this.tbSubcatDescription.Name = "tbSubcatDescription";
+            this.tbSubcatDescription.Size = new System.Drawing.Size(271, 108);
+            this.tbSubcatDescription.TabIndex = 8;
             // 
             // LbDescSub
             // 
             this.LbDescSub.AutoSize = true;
-            this.LbDescSub.Location = new System.Drawing.Point(189, 20);
+            this.LbDescSub.Location = new System.Drawing.Point(309, 19);
             this.LbDescSub.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbDescSub.Name = "LbDescSub";
-            this.LbDescSub.Size = new System.Drawing.Size(69, 15);
+            this.LbDescSub.Size = new System.Drawing.Size(101, 27);
             this.LbDescSub.TabIndex = 10;
             this.LbDescSub.Text = "Descripción";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(12, 39);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 23);
-            this.textBox2.TabIndex = 7;
             // 
             // LbSubcat
             // 
             this.LbSubcat.AutoSize = true;
-            this.LbSubcat.Location = new System.Drawing.Point(12, 20);
+            this.LbSubcat.Location = new System.Drawing.Point(34, 19);
             this.LbSubcat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbSubcat.Name = "LbSubcat";
-            this.LbSubcat.Size = new System.Drawing.Size(76, 15);
+            this.LbSubcat.Size = new System.Drawing.Size(112, 27);
             this.LbSubcat.TabIndex = 9;
             this.LbSubcat.Text = "Subcategoria";
             // 
@@ -238,24 +376,31 @@ namespace WinFormPOS
             this.pCatSubcat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pCatSubcat.Location = new System.Drawing.Point(0, 0);
             this.pCatSubcat.Name = "pCatSubcat";
-            this.pCatSubcat.Size = new System.Drawing.Size(1147, 531);
+            this.pCatSubcat.Size = new System.Drawing.Size(1260, 668);
             this.pCatSubcat.TabIndex = 5;
             // 
             // CategoryFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 531);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(187)))));
+            this.ClientSize = new System.Drawing.Size(1260, 668);
             this.Controls.Add(this.pCatSubcat);
+            this.Font = new System.Drawing.Font("Dubai Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.MaximumSize = new System.Drawing.Size(1260, 668);
             this.Name = "CategoryFrm";
             this.Text = "CategoryFrm";
+            this.Load += new System.EventHandler(this.CategoryFrm_Load);
             this.pCategory.ResumeLayout(false);
             this.pCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCat)).EndInit();
             this.pSubcategory.ResumeLayout(false);
             this.pSubcategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubcat)).EndInit();
             this.pCatSubcat.ResumeLayout(false);
             this.pCatSubcat.PerformLayout();
             this.ResumeLayout(false);
@@ -266,23 +411,26 @@ namespace WinFormPOS
 
         private System.Windows.Forms.Panel pCategory;
         private System.Windows.Forms.Panel pSubcategory;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCat;
         private System.Windows.Forms.Label LbDescCat;
         private System.Windows.Forms.Label LbCateg;
-        private System.Windows.Forms.TextBox tBDescription;
-        private System.Windows.Forms.TextBox tBCategory;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tBCatDescription;
+        private System.Windows.Forms.DataGridView dgvSubcat;
+        private System.Windows.Forms.TextBox tbSubcatDescription;
         private System.Windows.Forms.Label LbDescSub;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label LbSubcat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BrandImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BrandName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BrandDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Panel pCatSubcat;
-    
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.ComboBox cbSubcategory;
+        private System.Windows.Forms.Panel pButtons;
+        private FontAwesome.Sharp.IconButton iBAddCat;
+        private FontAwesome.Sharp.IconButton Cat;
+        private FontAwesome.Sharp.IconButton iBEditCat;
+        private FontAwesome.Sharp.IconButton iBGuardarCat;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton iBAddSubcat;
+        private FontAwesome.Sharp.IconButton iBRemoveSubcat;
+        private FontAwesome.Sharp.IconButton iBEditSubcat;
+        private FontAwesome.Sharp.IconButton iBGuardarSubcate;
     }
 }

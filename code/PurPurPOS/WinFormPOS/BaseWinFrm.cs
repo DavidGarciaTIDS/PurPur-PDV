@@ -13,6 +13,16 @@ namespace WinFormPOS
 {
     public partial class BaseWinFrm : Form
     {
+        private Products Prod = new Products();
+        private Category Cat = new Category();
+        private Subcategory Subcat = new Subcategory();
+        private Brands Brand = new Brands();
+
+        public static List<Category> ListCategory = new List<Category>();
+        public static List<Subcategory> ListSubcategory = new List<Subcategory>();
+        public static List<Brands> ListBrand = new List<Brands>();
+        public static List<Products> ListProducts = new List<Products>();
+
         int currentModule=0;
         public BaseWinFrm()
         {
@@ -23,7 +33,15 @@ namespace WinFormPOS
         {
             lbUsName.Text = LoginFrm.currentUser.fullName().Replace("'","");
             lbUserType.Text = LoginFrm.currentUser.UsLv.ToString().Replace("'", "");
-            
+
+            ListCategory = Cat.DataToCateList(Cat.Index("id", false, new List<string> { "*" }));
+            ListSubcategory = Subcat.DataToCateList(Subcat.Index("id", false, new List<string> { "*" }));
+            Subcat.FillCategories(ListCategory);
+            ListBrand = Brand.DataToBrandList(Brand.Index("id", false, new List<string> { "*" }));
+            Prod.FillBrands(ListBrand);
+            Prod.FillSubcat(ListSubcategory);
+            ListProducts = Prod.DataToProdList(Prod.Index("id", false, new List<string> { "*" }));
+
             pDisplay.Controls.Add(pUserMenu);
             pUserMenu.Visible = false;
         }

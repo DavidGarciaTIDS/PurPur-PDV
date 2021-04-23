@@ -7,7 +7,7 @@ using LibBD;
 
 namespace LibPDV.App
 {
-    public class SearchAdapter 
+    public class SearchAdapter
     {
         public string Name { get; set; }
         public CriteriaOperator Operator { get; set; }
@@ -15,7 +15,7 @@ namespace LibPDV.App
         public bool IsVarchar { get; set; }
         public LogicOperator LogicOp { get; set; }
 
-        public SearchAdapter(SearchCollection search) 
+        public SearchAdapter(SearchCollection search)
         {
             this.Name = search.Name;
             this.Operator = search.Operator;
@@ -23,8 +23,8 @@ namespace LibPDV.App
             this.IsVarchar = search.IsVarchar;
             this.LogicOp = search.LogicOp;
         }
-        
-        public SearchAdapter(string name, CriteriaOperator Operat, object value,bool isString, LogicOperator LogicOper= LogicOperator.NOTHING) 
+
+        public SearchAdapter(string name, CriteriaOperator Operat, object value, bool isString, LogicOperator LogicOper = LogicOperator.NOTHING)
         {
             this.Name = name;
             this.Operator = Operat;
@@ -34,7 +34,7 @@ namespace LibPDV.App
         }
 
 
-        public SearchAdapter() 
+        public SearchAdapter()
         {
             this.Name = "";
             this.Value = 1;
@@ -43,13 +43,22 @@ namespace LibPDV.App
             this.LogicOp = LogicOperator.NOTHING;
         }
 
-        public SearchCollection adaptToCollect() 
+        public SearchCollection adaptToCollect()
         {
-            SearchCollection temp = new SearchCollection(this.Name,this.Operator,this.Value,this.IsVarchar,this.LogicOp);
+            SearchCollection temp = new SearchCollection(this.Name, this.Operator, this.Value, this.IsVarchar, this.LogicOp);
 
-            return temp ;
+            return temp;
         }
 
+        public List<SearchCollection> ListAdapCollect(List<SearchAdapter> SA)
+        {
+            List<SearchCollection> SC = new List<SearchCollection>();
+            foreach (SearchAdapter item in SA)
+            {
+                SC.Add(new SearchCollection(item.Name, item.Operator, item.Value, item.IsVarchar, item.LogicOp));
+            }
+            return SC;
+        }
 
         public string ParseOperator(CriteriaOperator op)
         {

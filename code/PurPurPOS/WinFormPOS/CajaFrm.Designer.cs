@@ -42,10 +42,12 @@ namespace WinFormPOS
             this.pGridCheckout = new System.Windows.Forms.Panel();
             this.dgvPOS = new System.Windows.Forms.DataGridView();
             this.pBottomCheckout = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbPayment = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.iBtnCash = new FontAwesome.Sharp.IconButton();
             this.iBtnCard = new FontAwesome.Sharp.IconButton();
             this.pPayChange = new System.Windows.Forms.TableLayoutPanel();
-            this.tbPayment = new System.Windows.Forms.TextBox();
             this.lbCambio = new System.Windows.Forms.Label();
             this.lbCambioAmount = new System.Windows.Forms.Label();
             this.lbPago = new System.Windows.Forms.Label();
@@ -60,6 +62,7 @@ namespace WinFormPOS
             this.pGridCheckout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOS)).BeginInit();
             this.pBottomCheckout.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pPayChange.SuspendLayout();
             this.pTotal.SuspendLayout();
             this.SuspendLayout();
@@ -95,15 +98,15 @@ namespace WinFormPOS
             // 
             this.lbStatusBarcode.AutoSize = true;
             this.lbStatusBarcode.BackColor = System.Drawing.Color.Transparent;
-            this.lbStatusBarcode.Location = new System.Drawing.Point(430, 0);
+            this.lbStatusBarcode.Location = new System.Drawing.Point(443, 3);
             this.lbStatusBarcode.Name = "lbStatusBarcode";
-            this.lbStatusBarcode.Size = new System.Drawing.Size(95, 32);
+            this.lbStatusBarcode.Size = new System.Drawing.Size(117, 32);
             this.lbStatusBarcode.TabIndex = 7;
-            this.lbStatusBarcode.Text = "Scanning";
+            this.lbStatusBarcode.Text = "Escaneando";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(161, 30);
+            this.button1.Location = new System.Drawing.Point(168, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 41);
             this.button1.TabIndex = 6;
@@ -119,7 +122,7 @@ namespace WinFormPOS
             this.iBtnSearchPrice.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iBtnSearchPrice.IconSize = 32;
             this.iBtnSearchPrice.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iBtnSearchPrice.Location = new System.Drawing.Point(643, 33);
+            this.iBtnSearchPrice.Location = new System.Drawing.Point(650, 41);
             this.iBtnSearchPrice.Name = "iBtnSearchPrice";
             this.iBtnSearchPrice.Size = new System.Drawing.Size(34, 33);
             this.iBtnSearchPrice.TabIndex = 5;
@@ -130,7 +133,7 @@ namespace WinFormPOS
             // 
             // NumAmount
             // 
-            this.NumAmount.Location = new System.Drawing.Point(787, 31);
+            this.NumAmount.Location = new System.Drawing.Point(794, 39);
             this.NumAmount.Name = "NumAmount";
             this.NumAmount.Size = new System.Drawing.Size(53, 40);
             this.NumAmount.TabIndex = 4;
@@ -142,7 +145,7 @@ namespace WinFormPOS
             // 
             // tbBarCode
             // 
-            this.tbBarCode.Location = new System.Drawing.Point(436, 30);
+            this.tbBarCode.Location = new System.Drawing.Point(443, 38);
             this.tbBarCode.Name = "tbBarCode";
             this.tbBarCode.Size = new System.Drawing.Size(245, 40);
             this.tbBarCode.TabIndex = 3;
@@ -156,7 +159,10 @@ namespace WinFormPOS
             "ELIMINAR",
             "EDITAR CANTIDAD"});
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 30);
+            this.comboBox1.Items.AddRange(new object[] {
+            "ELIMINAR",
+            "EDITAR CANTIDAD"});
+            this.comboBox1.Location = new System.Drawing.Point(32, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(129, 40);
             this.comboBox1.TabIndex = 2;
@@ -165,7 +171,7 @@ namespace WinFormPOS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(687, 33);
+            this.label2.Location = new System.Drawing.Point(694, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 32);
             this.label2.TabIndex = 1;
@@ -174,7 +180,7 @@ namespace WinFormPOS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(265, 32);
+            this.label1.Location = new System.Drawing.Point(272, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 32);
             this.label1.TabIndex = 0;
@@ -205,6 +211,7 @@ namespace WinFormPOS
             // pBottomCheckout
             // 
             this.pBottomCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.pBottomCheckout.Controls.Add(this.panel1);
             this.pBottomCheckout.Controls.Add(this.iBtnCash);
             this.pBottomCheckout.Controls.Add(this.iBtnCard);
             this.pBottomCheckout.Controls.Add(this.pPayChange);
@@ -214,6 +221,32 @@ namespace WinFormPOS
             this.pBottomCheckout.Name = "pBottomCheckout";
             this.pBottomCheckout.Size = new System.Drawing.Size(1260, 94);
             this.pBottomCheckout.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tbPayment);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(883, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 44);
+            this.panel1.TabIndex = 7;
+            // 
+            // tbPayment
+            // 
+            this.tbPayment.Location = new System.Drawing.Point(31, 0);
+            this.tbPayment.Name = "tbPayment";
+            this.tbPayment.Size = new System.Drawing.Size(111, 40);
+            this.tbPayment.TabIndex = 0;
+            this.tbPayment.TextChanged += new System.EventHandler(this.tbPayment_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 32);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "$";
             // 
             // iBtnCash
             // 
@@ -250,7 +283,6 @@ namespace WinFormPOS
             this.pPayChange.ColumnCount = 2;
             this.pPayChange.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.87234F));
             this.pPayChange.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.12766F));
-            this.pPayChange.Controls.Add(this.tbPayment, 1, 0);
             this.pPayChange.Controls.Add(this.lbCambio, 0, 1);
             this.pPayChange.Controls.Add(this.lbCambioAmount, 1, 1);
             this.pPayChange.Controls.Add(this.lbPago, 0, 0);
@@ -259,16 +291,9 @@ namespace WinFormPOS
             this.pPayChange.RowCount = 2;
             this.pPayChange.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pPayChange.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pPayChange.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pPayChange.Size = new System.Drawing.Size(235, 91);
             this.pPayChange.TabIndex = 4;
-            // 
-            // tbPayment
-            // 
-            this.tbPayment.Location = new System.Drawing.Point(92, 3);
-            this.tbPayment.Name = "tbPayment";
-            this.tbPayment.Size = new System.Drawing.Size(134, 40);
-            this.tbPayment.TabIndex = 0;
-            this.tbPayment.Text = "$";
             // 
             // lbCambio
             // 
@@ -371,6 +396,8 @@ namespace WinFormPOS
             this.pGridCheckout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOS)).EndInit();
             this.pBottomCheckout.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pPayChange.ResumeLayout(false);
             this.pPayChange.PerformLayout();
             this.pTotal.ResumeLayout(false);
@@ -406,5 +433,7 @@ namespace WinFormPOS
         private System.Windows.Forms.Label lbStatusBarcode;
         private FontAwesome.Sharp.IconButton iBtnCash;
         private FontAwesome.Sharp.IconButton iBtnCard;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
     }
 }
